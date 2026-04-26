@@ -3,99 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Love</title>
+    <title>Happy Birthday My Love</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
         
-        
         body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Poppins', sans-serif;
-    color: white;
-    text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            text-align: center;
 
-    background-image: url("IMG-20250325-WA0020 (1).jpg"); 
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover; 
+            /* පසුබිම් පින්තූරය */
+            background-image: url("IMG-20250325-WA0020 (1).jpg"); 
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover; 
+            background-position: center 30%; /* Laptop එකේදී පෙනුම පාලනය කිරීමට */
+            background-color: #000;
+        }
 
-    /* --- මෙන්න මේ පේළිය තමයි ඔයා ඉල්ලපු දේ කරන්නේ --- */
-    /* 0% කියන්නේ උඩම කොටස, 100% කියන්නේ යටම කොටස. 
-       අපි මේක 20%ක් වගේ කළොත් උඩ තියෙන මුහුණු ටික පල්ලෙහාට ඇවිත් screen එකට fit වෙනවා. */
-    background-position: center 30%; 
-    
-    background-color: #000;
-}
-
-/* Phone එකෙන් බලද්දී මීටත් වඩා පල්ලෙහාට ගන්න ඕන නම් මේක පාවිච්චි කරන්න */
-@media (max-width: 600px) {
-    body {
-        background-position: center 15%; /* Phone එකේදී තවත් ටිකක් පල්ලෙහාට ගත්තා */
-        background-size: cover;
-    }
-}
-        
-
-        @media (max-width: 600px) {
-    body {
-        /* Phone එකට ගැලපෙන දිග ෆොටෝ එක මෙතනට දෙන්න */
-        background-image: url("IMG-20250325-WA0020 (1).jpg"); 
-        background-size: cover; /* දැන් මෙතනට cover දෙන්න පුළුවන්, මොකද ෆොටෝ එක දැනටමත් දිග අතට තියෙන නිසා */
-        background-position: center;
-    }
-    
-    .container {
-        max-width: 85%;
-        padding: 15px 25px;
-    }
-}
-
-        /* Container (Glass Effect) - කලින් තිබූ පරිදිමයි */
+        /* --- මැද තියෙන වීදුරු පෙට්ටිය (Glass Box) --- */
         .container {
             background: rgba(255, 255, 255, 0.1); 
-            padding: 0px 40px;
+            padding: 40px 30px;
             border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(15px); 
             -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            max-width: 20%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: 85%;
+            max-width: 400px;
             position: relative;
-            z-index: 2;
+            z-index: 5;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             margin-bottom: 10px;
-            color: white; 
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         p {
             font-size: 1.1rem;
-            margin-bottom: 40px;
-            font-weight: 300;
+            margin-bottom: 20px;
             color: #f0f0f0;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
 
+        /* --- හෘදයාකාර Button එක --- */
         .heart-btn {
             position: relative;
-            width: 150px; 
-            height: 150px;
-            margin: 50px auto;
+            width: 130px;
+            height: 120px;
+            margin: 30px auto 10px;
             display: flex;
             justify-content: center;
             align-items: center;
             text-decoration: none;
-            animation: heartBeat 1.2s infinite;
             cursor: pointer;
-            filter: drop-shadow(0px 10px 15px rgba(233, 69, 96, 0.5)); 
+            animation: heartBeat 1.2s infinite; 
+            filter: drop-shadow(0px 8px 15px rgba(233, 69, 96, 0.4));
         }
 
         .heart-btn::before,
@@ -103,20 +74,20 @@
             content: "";
             position: absolute;
             top: 0;
-            width: 80px; 
-            height: 130px; 
+            width: 70px;
+            height: 110px;
             border-radius: 50px 50px 0 0;
             background: #e94560;
         }
 
         .heart-btn::before {
-            left: 75px;
+            left: 65px;
             transform: rotate(-45deg);
             transform-origin: 0 100%;
         }
 
         .heart-btn::after {
-            left: -5px;
+            left: 0;
             transform: rotate(45deg);
             transform-origin: 100% 100%;
         }
@@ -125,22 +96,59 @@
             position: absolute;
             z-index: 10;
             color: white;
-            font-family: 'Poppins', sans-serif;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
             text-align: center;
-            top: 35px;
-            width: 100px;
             line-height: 1.2;
+            top: 30px;
+            width: 90px;
             pointer-events: none;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+        }
+
+        /* --- Phone එක සඳහා (Mobile Responsive) --- */
+        @media (max-width: 600px) {
+            body {
+                background-position: center 15%; /* මුහුණු කැපෙන්නේ නැති වෙන්න පල්ලෙහාට ගත්තා */
+            }
+
+            .container {
+                width: 80%;
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            p {
+                font-size: 0.9rem;
+            }
+
+            .heart-btn {
+                width: 110px;
+                height: 100px;
+            }
+
+            .heart-btn::before,
+            .heart-btn::after {
+                width: 60px;
+                height: 95px;
+            }
+            
+            .heart-btn::before { left: 55px; }
+
+            .heart-text {
+                font-size: 14px;
+                top: 25px;
+                width: 80px;
+            }
         }
 
         @keyframes heartBeat {
             0% { transform: scale(1); }
-            15% { transform: scale(1.15); }
+            15% { transform: scale(1.1); }
             30% { transform: scale(1); }
-            45% { transform: scale(1.2); }
+            45% { transform: scale(1.15); }
             100% { transform: scale(1); }
         }
     </style>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Surprise</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #1a1a2e;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+        }
+
+        /* වීඩියෝව සම්පූර්ණ තිරය පුරාම */
+       #cakeVideo {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    /* මෙන්න මේ පේළිය තමයි වැදගත්ම */
+    object-fit: contain; 
+    background-color: #000; /* වීඩියෝ එක දෙපැත්තෙන් ඉතුරු වෙන කොටස කළු පාටින් පෙනෙයි */
+    z-index: 1;
+}
+
+        /* සද්දය පාලනය කරන Button එක */
+        #unmuteBtn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            background: rgba(233, 69, 96, 0.8);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            display: none; /* වීඩියෝව පටන් ගත් පසු පෙන්වයි */
+            font-family: 'Poppins', sans-serif;
+        }
+
+        #startOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #1a1a2e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        /* ලිවුම් කවරයේ මෝස්තරය */
+        #letterContainer {
+            display: none;
+            text-align: center;
+            z-index: 2;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .envelope-wrapper {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .envelope {
+            font-size: 180px;
+            color: #f3f3f3;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+        }
+
+        .heart-seal {
+            position: absolute;
+            top: 58%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 50px;
+            animation: heartPulse 1.5s infinite;
+        }
+
+        @keyframes heartPulse {
+            0% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
+            100% { transform: translate(-50%, -50%) scale(1); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="startOverlay">
+        <button onclick="startVideo()" style="padding: 15px 35px; font-size: 1.2rem; border-radius: 50px; border: none; background: #e94560; color: white; cursor: pointer; box-shadow: 0 4px 15px rgba(233,69,96,0.4);">
+            Click to See Your Surprise ❤️
+        </button>
+    </div>
+
+    <button id="unmuteBtn" onclick="toggleMute()">🔇 Tap for Sound</button>
+
+    <video id="cakeVideo" playsinline>
+        <source src="2026-04-26-121634804.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div id="letterContainer">
+        <div class="envelope-wrapper" onclick="goToLetter()">
+            <div class="envelope">✉️</div>
+            <div class="heart-seal">❤️</div>
+        </div>
+        <p style="color: white; margin-top: 25px; font-size: 1.5rem; font-weight: 300;">You have a message!</p>
+    </div>
+
+    <script>
+        const video = document.getElementById('cakeVideo');
+        const startOverlay = document.getElementById('startOverlay');
+        const unmuteBtn = document.getElementById('unmuteBtn');
+        const letterBox = document.getElementById('letterContainer');
+
+        function startVideo() {
+            startOverlay.style.display = 'none';
+            unmuteBtn.style.display = 'block'; 
+            
+            // වීඩියෝව මුලින් Muted කර ප්ලේ කිරීම (Autoplay සහතික කිරීමට)
+            video.muted = true;
+            video.play();
+        }
+
+        function toggleMute() {
+            if (video.muted) {
+                video.muted = false;
+                unmuteBtn.innerHTML = "🔊 Sound On";
+                unmuteBtn.style.background = "#2ecc71"; // සද්දය ඇති විට කොළ පාට
+            } else {
+                video.muted = true;
+                unmuteBtn.innerHTML = "🔇 Sound Off";
+                unmuteBtn.style.background = "#e94560";
+            }
+        }
+
+        video.onended = function() {
+            video.style.display = 'none';
+            unmuteBtn.style.display = 'none';
+            letterBox.style.display = 'block';
+        };
+
+        function goToLetter() {
+            window.location.href = "letter.html";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        
+        
+        body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    text-align: center;
+
+    background-image: url("IMG-20250325-WA0020 (1).jpg"); 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover; 
+
+    /* --- මෙන්න මේ පේළිය තමයි ඔයා ඉල්ලපු දේ කරන්නේ --- */
+    /* 0% කියන්නේ උඩම කොටස, 100% කියන්නේ යටම කොටස. 
+       අපි මේක 20%ක් වගේ කළොත් උඩ තියෙන මුහුණු ටික පල්ලෙහාට ඇවිත් screen එකට fit වෙනවා. */
+    background-position: center 30%; 
+    
+    background-color: #000;
+}
+
+/* Phone එකෙන් බලද්දී මීටත් වඩා පල්ලෙහාට ගන්න ඕන නම් මේක පාවිච්චි කරන්න */
+@media (max-width: 600px) {
+    body {
+        background-position: center 15%; /* Phone එකේදී තවත් ටිකක් පල්ලෙහාට ගත්තා */
+        background-size: cover;
+    }
+}
+        
+
+        @media (max-width: 600px) {
+    body {
+        /* Phone එකට ගැලපෙන දිග ෆොටෝ එක මෙතනට දෙන්න */
+        background-image: url("IMG-20250325-WA0020 (1).jpg"); 
+        background-size: cover; /* දැන් මෙතනට cover දෙන්න පුළුවන්, මොකද ෆොටෝ එක දැනටමත් දිග අතට තියෙන නිසා */
+        background-position: center;
+    }
+    
+    .container {
+        max-width: 85%;
+        padding: 15px 25px;
+    }
+}
+
+        /* Container (Glass Effect) - කලින් තිබූ පරිදිමයි */
+        .container {
+            background: rgba(255, 255, 255, 0.1); 
+            padding: 0px 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            backdrop-filter: blur(15px); 
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            max-width: 20%;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: white; 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+            color: #f0f0f0;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .heart-btn {
+            position: relative;
+            width: 150px; 
+            height: 150px;
+            margin: 50px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            animation: heartBeat 1.2s infinite;
+            cursor: pointer;
+            filter: drop-shadow(0px 10px 15px rgba(233, 69, 96, 0.5)); 
+        }
+
+        .heart-btn::before,
+        .heart-btn::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 80px; 
+            height: 130px; 
+            border-radius: 50px 50px 0 0;
+            background: #e94560;
+        }
+
+        .heart-btn::before {
+            left: 75px;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+
+        .heart-btn::after {
+            left: -5px;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+
+        .heart-text {
+            position: absolute;
+            z-index: 10;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            text-align: center;
+            top: 35px;
+            width: 100px;
+            line-height: 1.2;
+            pointer-events: none;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+        }
+
+        @keyframes heartBeat {
+            0% { transform: scale(1); }
+            15% { transform: scale(1.15); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Birthday My Soul Mate! ❤️</h1>
+        <p>I built something special just for you...</p>
+        
+        <a href="memories.html" class="heart-btn">
+            <span class="heart-text">Open<br>Your Gift</span>
+        </a>
+    </div>
+</body>
+</html>
